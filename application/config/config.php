@@ -1,7 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$config['base_url'] = 'http://localhost/wellisson/hotmart-api/'; 
+//$config['base_url'] = 'http://localhost/wellisson/hotmart-api/'; 
+$config['base_url'] = 'https://wribeiiro.com/hotmart-api/'; 
 /*
 |--------------------------------------------------------------------------
 | Index File
@@ -201,7 +202,7 @@ $config['allow_get_array'] = TRUE;
 | your log files will fill up very fast.
 |
 */
-$config['log_threshold'] = 1;
+$config['log_threshold'] = 0;
 
 /*
 |--------------------------------------------------------------------------

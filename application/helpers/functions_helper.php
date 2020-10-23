@@ -43,7 +43,7 @@ function pre($var, $exit = true) {
         exit;
 }
 
-function sendMail(string $from, string $to, string $bcc = null, string $subject, string $message) {
+function sendMail(string $from = 'dev@wribeiiro.com', string $to, string $bcc = null, string $subject, string $message) {
 	$ci = &get_instance();
 
 	$ci->load->library('email', [

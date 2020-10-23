@@ -8,15 +8,15 @@ class Hotmart extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
+    }
+
+    public function index() {
 
         $this->hotmart = new HotmartApi(
             '1d88dc15-4eaf-49ae-bd6c-53e574f22f57', 
             'bde0d145-6883-4007-a065-99e846f7b663', 
             'MWQ4OGRjMTUtNGVhZi00OWFlLWJkNmMtNTNlNTc0ZjIyZjU3OmJkZTBkMTQ1LTY4ODMtNDAwNy1hMDY1LTk5ZTg0NmY3YjY2Mw=='
         );
-    }
-
-    public function index() {
         
         $result = $this->hotmart->authorize();
 
@@ -37,6 +37,23 @@ class Hotmart extends CI_Controller {
     }
 
     public function notifications() {
+        $fp	= fopen("log_.txt", "w");
 
+	    fwrite($fp, $_POST['email']. "\n");
+        fclose($fp);
+
+        $notify = sendMail(
+            'dev@wribeiiro.com', 
+            'welleh10@gmail.com', 
+            null, 
+            'Test of notify Hotmart', 
+            'Test of notify Hotmart'
+        );
+        
+        if ($notify) {
+            echo json_encode(["status" => "OK"]);
+        } else {
+            echo json_encode(["status" => "ERRO"]);
+        }
     }
 }
