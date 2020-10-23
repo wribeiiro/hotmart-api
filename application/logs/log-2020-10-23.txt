@@ -1,0 +1,5 @@
+ERROR - 09:54:47 2020-10-23 --> Severity: error --> Exception: Class 'HotmartApi' not found C:\xampp\htdocs\wellisson\hotmart-api\application\controllers\Hotmart.php 14
+ERROR - 09:54:59 2020-10-23 --> Severity: error --> Exception: Class 'HotmartApi' not found C:\xampp\htdocs\wellisson\hotmart-api\application\controllers\Hotmart.php 14
+ERROR - 09:55:05 2020-10-23 --> Severity: error --> Exception: Class 'HotmartApi' not found C:\xampp\htdocs\wellisson\hotmart-api\application\controllers\Hotmart.php 14
+ERROR - 09:55:08 2020-10-23 --> Severity: error --> Exception: Class 'HotmartApi' not found C:\xampp\htdocs\wellisson\hotmart-api\application\controllers\Hotmart.php 14
+ERROR - 10:12:47 2020-10-23 --> Severity: error --> Exception: Argument 2 passed to HotmartApi::get() must be of the type array, null given, called in C:\xampp\htdocs\wellisson\hotmart-api\application\controllers\Hotmart.php on line 29 C:\xampp\htdocs\wellisson\hotmart-api\application\libraries\HotmartApi.php 106
