@@ -1,8 +1,9 @@
 <?php
 
-class HotmartApi {
+class HotmartClient {
 
     protected static $endpoint = "https://sandbox.hotmart.com/payments/api/v1/";
+    protected static $sandbox_endpoint = "https://sandbox.hotmart.com/payments/api/v1/";
     protected static $authpoint = "https://api-sec-vlc.hotmart.com/security/oauth/";
 
     protected $client_id;
@@ -10,22 +11,19 @@ class HotmartApi {
     protected $token;
     protected $access_token;
     protected $sub_endpoint;
+    private $CI;
 
-    /**
-     * Undocumented function
-     *
-     * @param string $client_id
-     * @param string $client_secret
-     * @param string $token
-     */
-    public function __construct(string $client_id, string $client_secret, string $token) {
-        $this->client_id     = $client_id;
-        $this->client_secret = $client_secret;
-        $this->token         = $token;
+    public function __construct() {
+        $this->CI = get_instance();
+        $this->CI->config->load('hotmart');
+
+        $this->client_id     = $this->CI->config->item('client_id');
+        $this->client_secret = $this->CI->config->item('client_secret');
+        $this->token         = $this->CI->config->item('token');
     }
 
     /**
-     * Undocumented function
+     * setEndpoint
      *
      * @param string $url
      * @return void
@@ -35,7 +33,7 @@ class HotmartApi {
     }
 
     /**
-     * Undocumented function
+     * getEndpoint
      *
      * @return string
      */
@@ -44,7 +42,7 @@ class HotmartApi {
     }
 
     /**
-     * Undocumented function
+     * setAccessToken
      *
      * @param string $accessToken
      * @return void
@@ -54,7 +52,7 @@ class HotmartApi {
     }
 
     /**
-     * Undocumented function
+     * getAccessToken
      *
      * @return string
      */
@@ -63,7 +61,7 @@ class HotmartApi {
     }
 
     /**
-     * Undocumented function
+     * execute
      *
      * @param string $url
      * @param string $type
@@ -96,7 +94,7 @@ class HotmartApi {
     }
 
     /**
-     * Undocumented function
+     * get
      *
      * @param string $url
      * @param array $params
@@ -112,7 +110,7 @@ class HotmartApi {
     }
 
     /**
-     * Undocumented function
+     * authorize
      *
      * @return array
      */
@@ -129,5 +127,12 @@ class HotmartApi {
         } 
 
         return $auth;
+    }
+
+    public function writeLog(string $input): void {
+        $fp	= fopen("log_.txt", "w");
+
+	    fwrite($fp, $input. "\n");
+        fclose($fp);
     }
 }
